@@ -1,10 +1,17 @@
 import { Router } from 'express';
 
+import UserController from './app/controllers/UserController';
+import SessionController from './app/controllers/SessionController';
+
+import jwtAuth from './app/middlewares/auth';
+
 const routes = new Router();
 
-routes.get('/teste', (req, res) => {
-  console.log('pei');
-  return res.json({ message: 'Hello World!' });
-});
+routes.post('/users', UserController.store);
+routes.post('/sessions', SessionController.store);
+
+routes.use(jwtAuth);
+
+routes.put('/users', UserController.update);
 
 export default routes;
