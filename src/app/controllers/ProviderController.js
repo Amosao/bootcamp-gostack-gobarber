@@ -1,4 +1,4 @@
-// import yup from 'yup';
+// import * as yup from 'yup';
 import User from '../models/User';
 import File from '../models/File';
 
